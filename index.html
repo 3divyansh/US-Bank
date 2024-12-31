@@ -285,7 +285,7 @@
 
      
      <section class="text-white" style="background-color: #0b1e3d; font-family: 'Arial', sans-serif;">
-	<div class="container mx-auto py-12">
+	<div class="container mx-auto py-12 px-4 sm:px-6">
 	  <h2 class="text-center text-3xl font-bold mb-4 text-green-400">WHY CHOOSE US</h2>
 	  <p class="text-center mb-12">The Benefits of Investing with our U.S Bancorp Investment Platform</p>
 	  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -321,8 +321,8 @@
 	    </div>
 	  </div>
 	</div>
-     </section>
-     
+</section>
+
 
 
    <section style="background-color: #0b1e3d; font-family: 'Arial', sans-serif;" class="text-white">
@@ -417,7 +417,7 @@
      </section>
      
 
-     <section class="bg-[#0b1120] text-white">
+     <section class="bg-[#0b1120] text-white mb-6">
 	<div class="text-center py-12">
 	    <h1 class="text-4xl font-bold text-green-500">OUR INVESTMENT PROCESS</h1>
 	    <p class="mt-4 text-lg">Our investment process is designed to be simple and straightforward, ensuring that you can start investing and earning profits without any hassle.</p>
@@ -712,22 +712,28 @@
      
 
 
-     <section class="subscription-section p-4">
-	<div class="subscription-box bg-white shadow rounded p-6">
-	    <div class="subscription-text text-lg mb-4">
-		 Join our mail list to get the latest announcements
-	    </div>
-	    <div class="input-container flex items-center">
-		 <input type="email" placeholder="Email Address" class="input-email border border-gray-300 rounded p-2 flex-1 mr-2" required>
-		 <button class="subscribe-button bg-green-600 mb-4 text-white px-4 py-2 rounded" onclick="subscribe()">
-		     Join our mail list
-		 </button>
-	    </div>
-	    <div id="message-containers" class="mt-4 text-red-600 hidden"></div>
-	    <div id="message-container" class="mt-4 text-blue-600 hidden"></div>
+     <section class="subscription-section px-4 py-8 ">
+	<div class="subscription-box bg-white shadow-lg rounded-lg p-8 max-w-lg mx-auto">
+	  <div class="subscription-text text-lg font-semibold mb-4 text-center text-gray-700">
+	    Join our mail list to get the latest announcements
+	  </div>
+	  <div class="input-container flex flex-col sm:flex-row items-center justify-center">
+	    <input 
+	      type="email" 
+	      placeholder="Email Address" 
+	      class="input-email border border-gray-300 rounded-lg p-3 w-full sm:w-auto flex-1 sm:mr-4 mb-4 sm:mb-0 focus:outline-none focus:ring focus:ring-green-300" 
+	      required>
+	    <button 
+	      class="subscribe-button bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition duration-300 focus:outline-none focus:ring focus:ring-green-300"
+	      onclick="subscribe()">
+	      Join Now
+	    </button>
+	  </div>
+	  <div id="message-containers" class="mt-4 text-red-600 hidden text-center"></div>
+	  <div id="message-container" class="mt-4 text-blue-600 hidden text-center"></div>
 	</div>
-   </section>
-
+     </section>
+     
 
 
    <section style="background-color: #0a1f44; font-family: 'Arial', sans-serif;" class="text-white">
