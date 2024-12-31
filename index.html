@@ -1,0 +1,851 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   U.S BANCORP
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites/dist/css/foundation.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+	.clip-path-polygon {
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+        }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+	<div id="spinner" class="spinner absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+	
+	<section class="bg-cover bg-center overflow-hidden "   >
+	<div class="bg-slate-900 bg-opacity-90 h-full-screen">
+		<header class="bg-black bg-opacity-50 text-white py-4 relative z-10 animate-blow">
+			<div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+			    <div class="flex items-center space-x-2 text-base"> <!-- Increased font size -->
+				 <i class="fas fa-envelope text-lime-600"></i>
+				 <span class="text-sm cursor-pointer">usbankcorp@gmail.com</span> <!-- Adjusted font size -->
+			    </div>
+			    
+			    <div class="flex items-center space-x-6 mt-2 md:mt-0 z-20">
+				<!-- Login -->
+				<span class="text-sm cursor-pointer hover:text-lime-400 transition duration-300" onclick="showForm('login')">
+				    <i class="fas fa-user text-lime-600"></i> Login
+				</span>
+				<!-- Registration -->
+				<span class="text-sm cursor-pointer hover:text-lime-400 transition duration-300" onclick="showForm('register')">
+				    <i class="fas fa-sync-alt text-lime-600"></i> Registration
+				</span>
+			   </div>
+			   </div>
+			   </header>
+			   
+			   <!-- Overlay Background -->
+			   <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-10"></div>
+			   
+			   <!-- Login Form -->
+			   <div id="loginForm" class="hidden fixed inset-0 flex justify-center items-center z-20">
+				<div class="bg-white p-6 rounded-lg w-full max-w-md relative">
+				    <!-- Close Button -->
+				    <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onclick="closeForm()">
+					 <i class="fas fa-times"></i>
+				    </button>
+				    <h2 class="text-lg font-bold mb-4">Login</h2>
+				    <input type="text" id="loginUsername" class="border p-2 w-full mb-4" placeholder="Username" />
+				    <input type="password" id="loginPassword" class="border p-2 w-full mb-4" placeholder="Password" />
+				    <button class="bg-blue-600 text-white px-4 py-2 w-full" onclick="submitLogin()">Login</button>
+				</div>
+			   </div>
+			   
+			   <!-- Registration Form -->
+			   <div id="registerForm" class="hidden fixed inset-0 flex justify-center items-center z-20">
+				<div class="bg-white p-6 rounded-lg w-full max-w-md relative">
+				    <!-- Close Button -->
+				    <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onclick="closeForm()">
+					 <i class="fas fa-times"></i>
+				    </button>
+				    <h2 class="text-lg font-bold mb-4">Register</h2>
+				    <input type="text" id="registerName" class="border p-2 w-full mb-4" placeholder="Full Name" />
+				    <input type="email" id="registerEmail" class="border p-2 w-full mb-4" placeholder="Email" />
+				    <input type="password" id="registerPassword" class="border p-2 w-full mb-4" placeholder="Password" />
+				    <button class="bg-blue-600 text-white px-4 py-2 w-full" onclick="submitRegister()">Register</button>
+				</div>
+			   </div>
+			   
+				<div class="container mx-auto flex justify-between items-center">
+				    <img alt="Company Logo" class="h-14 w-40 rounded-md" src="./img/usbnk.svg" />
+			   
+				    <!-- Hamburger Menu for Mobile -->
+				    <button class="md:hidden text-white focus:outline-none" id="menu-btn">
+					 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+					 </svg>
+				    </button>
+			   
+				    <nav id="navbar">
+					 <ul class="hidden md:flex space-x-8" id="nav-menu">
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+						      Home
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#About">
+						      About
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="plan.html">
+						      Plans
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="blog.html">
+						      Blogs
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="contact.html">
+						      Contact
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="apps.html">
+						      Our App
+						  </a>
+					     </li>
+					 </ul>
+				    </nav>
+
+				    
+				</div>
+			   
+				<!-- Mobile Menu -->
+				<div class="md:hidden mt-2" id="mobile-menu">
+				    <ul class="flex flex-col space-y-2 list-none">
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
+						  Home
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#About">
+						  About
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="plan.html">
+						  Plans
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="blog.html">
+						  Blogs
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="apps.html">
+						  Our App
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="contact.html">
+						  Contact
+					     </a>
+					 </li>
+				    </ul>
+				</div>
+			 
+			   
+		   <div class="relative h-screen w-screen overflow-hidden">
+			<div class="background"></div>
+		      
+			
+			<main class="flex flex-col items-center justify-center text-center text-white h-full relative z-10">
+				<div class="flex items-center">
+				  <div class="relative left-slide hidden-slide"> <!-- Left slide animation -->
+				    <div class="absolute inset-0 bg-red-600 clip-path-polygon"></div>
+				    <div class="relative text-white font-bold text-6xl md:text-8xl px-4 py-2">
+				      us
+				    </div>
+				  </div>
+				  <div class="right-slide hidden-slide text-blue-700 font-bold text-6xl md:text-8xl"> <!-- Right slide animation -->
+				    bank
+				  </div>
+				</div>
+			     
+				<p class="left-slide hidden-slide text-4xl md:text-3xl mt-4 text-white font-extrabold shadow-md">
+				  INVEST BANCORP ANYTIME AT ANYWHERE
+				</p>
+				<p class="right-slide hidden-slide text-4xl md:text-3xl mt-2 text-blue-500 font-extrabold shadow-md">
+				  SINCE 2008
+				</p>
+
+				<div class="mt-8 space-x-4">
+					<div class="relative group inline-block left-slide hidden-slide">
+					  <button 
+					    class="button-style" 
+					    style="padding: 0.5rem 1.5rem; border: 2px solid transparent; color: red; background-color: #0d223f; text-transform: uppercase; font-size: 1.5rem; position: relative; overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease;" 
+					    onmouseover="this.style.color='white'; this.style.backgroundColor='rgba(255, 0, 0, 0.8)';" 
+					    onmouseout="this.style.color='red'; this.style.backgroundColor='#0d223f';">
+					   <a href="accountopen.html"> Account open </a>
+					  </button>
+					  <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
+					</div>
+				     
+					<div class="relative group inline-block right-slide hidden-slide">
+					  <button 
+					    class="button-style" 
+					    style="padding: 0.5rem 1.5rem; border: 2px solid transparent; color: red; background-color: #0d223f; text-transform: uppercase; font-size: 1.5rem; position: relative; overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease;" 
+					    onmouseover="this.style.color='white'; this.style.backgroundColor='rgba(255, 0, 0, 0.8)';" 
+					    onmouseout="this.style.color='red'; this.style.backgroundColor='#0d223f';">
+					    <a href="apps.html" style="color: inherit; text-decoration: none;">DOWNLOAD APP</a>
+					  </button>
+					  <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
+					</div>
+				     </div>
+				     
+			     </main>
+			     
+		   </div>
+		   
+		   
+</div>
+<section class="bg-gray-900 py-8">
+	<div class="container mx-auto flex flex-col md:flex-row justify-around items-center px-4">
+	  <!-- First Block: Slide from left -->
+	  <div class="flex items-center text-white mb-4 md:mb-0 text-center md:text-left whitespace-nowrap left-slide hidden-slide">
+	    <i class="fas fa-money-bill-wave text-green-500 text-3xl mr-2"></i>
+	    <div>
+	      <div class="text-2xl font-bold md:text-3xl">$25.5M</div>
+	      <div class="text-sm md:text-base">AVERAGE INVESTMENT</div>
+	    </div>
+	  </div>
+	  <!-- Second Block: Slide from right -->
+	  <div class="flex items-center text-white mb-4 md:mb-0 text-center md:text-left whitespace-nowrap right-slide hidden-slide">
+	    <i class="fas fa-globe-americas text-green-500 text-3xl mr-2"></i>
+	    <div>
+	      <div class="text-2xl font-bold md:text-3xl">170</div>
+	      <div class="text-sm md:text-base">COUNTRIES SUPPORTED</div>
+	    </div>
+	  </div>
+	  <!-- Third Block: Slide from left -->
+	  <div class="flex items-center text-white mb-4 md:mb-0 text-center md:text-left whitespace-nowrap left-slide hidden-slide">
+	    <i class="fas fa-user text-green-500 text-3xl mr-2"></i>
+	    <div>
+	      <div class="text-2xl font-bold md:text-3xl">36.9M</div>
+	      <div class="text-sm md:text-base">REGISTERED USERS</div>
+	    </div>
+	  </div>
+	</div>
+     </section>
+     
+   
+
+
+
+
+     <section class="bg-gray-900" style="background-color: #0b1e3d;">
+	<div class="container mx-auto px-4 py-20" id="About">
+	  <div class="text-center text-white">
+	    <div class="text-4xl font-bold text-white-500 left-slide hidden-slide">
+	      ABOUT <span style="color: rgb(231, 34, 34);">U.S </span><span style="color: rgb(44, 44, 246);">BANCORP</span>
+	    </div>
+	    <p class="text-lg mt-2 right-slide hidden-slide">
+	      AUTO TRADING IS THE FUTURE OF TRADING
+	    </p>
+	  </div>
+	  <div class="mt-8 max-w-2xl mx-auto">
+	    <div class="flex items-start text-white left-slide hidden-slide">
+	      <span class="text-green-500 text-2xl mr-2">•</span>
+	      <p 
+	      style="font-size: 1.2rem; line-height: 1.6; font-family: 'Arial', sans-serif; color: #ffffff; margin: 0; padding: 0; max-width: 800px; text-align: justify; word-wrap: break-word;"
+	  >
+	      U.S BANCORP is an influential London-United Kingdom based company that has been providing its investors with the best auto trading service in U.S Bancorp currency trading since 2002.
+	      <br><br>
+	      Now, to provide its services to the Indian investors in India, under the leadership of Satish Patel, and merged with SEBI registered broker FX MARKETPLACE (Registration No. INE261329135), and is providing the best auto trading service with low fees.
+	      <br>
+	      From now on, all traders in India will be able to avail of auto trading services in the U.S Bancorp currency market from their favorite SEBI-registered broker. So let’s start today and get profit with surety.
+	  </p>
+	  
+	    </div>
+	  </div>
+	  <!-- <div class="fixed bottom-10 right-10 flex items-center gap-4 right-slide hidden-slide">
+	    <button class="bg-green-500 text-white rounded-full p-6 shadow-lg">
+	      <i class="fas fa-play text-2xl"></i>
+	    </button>
+	  </div> -->
+	</div>
+     </section>
+
+
+     
+     <section class="text-white" style="background-color: #0b1e3d; font-family: 'Arial', sans-serif;">
+	<div class="container mx-auto py-12">
+	  <h2 class="text-center text-3xl font-bold mb-4 text-green-400">WHY CHOOSE US</h2>
+	  <p class="text-center mb-12">The Benefits of Investing with our U.S Bancorp Investment Platform</p>
+	  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+	    <div class="card hidden-slide" style="background-color: #0d223f; border-radius: 0.5rem; padding: 2rem; text-align: center; color: #a3ffb1; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);" data-animate>
+	      <i class="fas fa-file-alt" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+	      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Legal Company</h3>
+	      <p style="color: #ffffff;">Trusted and Compliant: Ensuring Legal Compliance for Secure and Hassle-Free Investments</p>
+	    </div>
+	    <div class="card hidden-slide" style="background-color: #0d223f; border-radius: 0.5rem; padding: 2rem; text-align: center; color: #a3ffb1; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);" data-animate>
+	      <i class="fas fa-lock" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+	      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">High Reliability</h3>
+	      <p style="color: #ffffff;">Dependable Investment Solutions: Ensuring High Reliability and One-Time Return</p>
+	    </div>
+	    <div class="card hidden-slide" style="background-color: #0d223f; border-radius: 0.5rem; padding: 2rem; text-align: center; color: #a3ffb1; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);" data-animate>
+	      <i class="fas fa-money-check-alt" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+	      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Secure Payment Gateway</h3>
+	      <p style="color: #ffffff;">Safe and Secure Transactions: Ensuring Peace of Mind with Our Secure Payment Gateway</p>
+	    </div>
+	    <div class="card hidden-slide" style="background-color: #0d223f; border-radius: 0.5rem; padding: 2rem; text-align: center; color: #a3ffb1; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);" data-animate>
+	      <i class="fas fa-truck" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+	      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Quick Withdrawal</h3>
+	      <p style="color: #ffffff;">Instant Access to Your Funds: Ensuring Quick and Hassle-Free Withdrawals</p>
+	    </div>
+	    <div class="card hidden-slide" style="background-color: #0d223f; border-radius: 0.5rem; padding: 2rem; text-align: center; color: #a3ffb1; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);" data-animate>
+	      <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+	      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Referral Program</h3>
+	      <p style="color: #ffffff;">Earn More with Our Referral Program: Sharing the Benefits of Investing with Your Friends and others</p>
+	    </div>
+	    <div class="card hidden-slide" style="background-color: #0d223f; border-radius: 0.5rem; padding: 2rem; text-align: center; color: #a3ffb1; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);" data-animate>
+	      <i class="fas fa-headset" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+	      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">24/7 Support</h3>
+	      <p style="color: #ffffff;">Round-the-Clock Assistance: Providing 24/7 Support for All Your Investment Needs</p>
+	    </div>
+	  </div>
+	</div>
+     </section>
+     
+
+
+   <section style="background-color: #0b1e3d; font-family: 'Arial', sans-serif;" class="text-white">
+	<div class="text-center py-10">
+	    <h1 class="text-4xl font-bold text-green-400">OUR PACKAGES</h1>
+	    <p class="text-lg mt-2">Explore our range of investment packages tailored to meet your unique needs</p>
+	</div>
+	<div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+	    <div class="bg-green-700 p-6 rounded-lg border border-green-400 package-card left-slide">
+		 <h2 class="text-center text-xl font-bold mb-4">BASIC PLAN</h2>
+		 <p class="text-center text-3xl font-bold mb-4">$ 999.00</p>
+		 <p class="flex items-center justify-center mb-4"><i class="fas fa-check-circle text-green-400 mr-2"></i>Get a taste of our Bronze Plan and get ready to earn daily profits of 3-4% for sure.</p>
+		 <div class="text-center">
+		     <button style="background-color: #064e3b;" class="text-white py-2 px-4 rounded">Invest Now</button>
+		 </div>
+	    </div>
+	    <div class="bg-green-700 p-6 rounded-lg border border-green-400 package-card right-slide">
+		 <h2 class="text-center text-xl font-bold mb-4">BRONZE PLAN</h2>
+		 <p class="text-center text-3xl font-bold mb-4">$ 5,000.00</p>
+		 <p class="flex items-center justify-center mb-4"><i class="fas fa-check-circle text-green-400 mr-2"></i>Start your trading with the Bronze plan after the Basic plan and get very safe and sure 5-7% profit daily.</p>
+		 <div class="text-center">
+		     <button style="background-color: #064e3b;" class="text-white py-2 px-4 rounded">Invest Now</button>
+		 </div>
+	    </div>
+	    <div class="bg-green-700 p-6 rounded-lg border border-green-400 package-card left-slide">
+		 <h2 class="text-center text-xl font-bold mb-4">SILVER PLAN</h2>
+		 <p class="text-center text-3xl font-bold mb-4">$ 10,000.00</p>
+		 <p class="flex items-center justify-center mb-4"><i class="fas fa-check-circle text-green-400 mr-2"></i>Once you are satisfied with Bronze then try our Silver Plan and get ready to earn daily profits of 8-12% for sure.</p>
+		 <div class="text-center">
+		     <button style="background-color: #064e3b;" class="text-white py-2 px-4 rounded">Invest Now</button>
+		 </div>
+	    </div>
+	    <div class="bg-green-700 p-6 rounded-lg border border-green-400 package-card right-slide">
+		 <h2 class="text-center text-xl font-bold mb-4">GOLD PLAN</h2>
+		 <p class="text-center text-3xl font-bold mb-4">$ 25,000.00</p>
+		 <p class="flex items-center justify-center mb-4"><i class="fas fa-check-circle text-green-400 mr-2"></i>Try this account for booster profits and get daily profit returns of 13-17%.</p>
+		 <div class="text-center">
+		     <button style="background-color: #064e3b;" class="text-white py-2 px-4 rounded">Invest Now</button>
+		 </div>
+	    </div>
+	    <div class="bg-green-700 p-6 rounded-lg border border-green-400 package-card left-slide">
+		 <h2 class="text-center text-xl font-bold mb-4">PLATINUM PLAN</h2>
+		 <p class="text-center text-3xl font-bold mb-4">$ 50,000.00</p>
+		 <p class="flex items-center justify-center mb-4"><i class="fas fa-check-circle text-green-400 mr-2"></i>Get daily profits of 18-22% with randomly withdrawable bonus offers.</p>
+		 <div class="text-center">
+		     <button style="background-color: #064e3b;" class="text-white py-2 px-4 rounded">Invest Now</button>
+		 </div>
+	    </div>
+	    <div class="bg-green-700 p-6 rounded-lg border border-green-400 package-card right-slide">
+		 <h2 class="text-center text-xl font-bold mb-4">VIP PLAN</h2>
+		 <p class="text-center text-3xl font-bold mb-4">$ 2,50,000.00</p>
+		 <p class="flex items-center justify-center mb-4"><i class="fas fa-check-circle text-green-400 mr-2"></i>Profit...Profit...Profit...Only Profit Get daily profit returns up to 35%, 0% loss probability and profit booked every hour.</p>
+		 <div class="text-center">
+		     <button style="background-color: #064e3b;" class="text-white py-2 px-4 rounded">Invest Now</button>
+		 </div>
+	    </div>
+	</div>
+	<div style="position: fixed; bottom: 1rem; right: 1rem;">
+	    <button style="background-color: #047857; padding: 1rem; border-radius: 9999px;">
+		<a href="aichat.html"> <i class="fas fa-comments text-white"></i></a>
+	    </button>
+	</div>
+   </section>
+   
+   <section class="bg-gray-900 text-white">
+	<div class="container mx-auto py-20 px-4">
+	  <h1 class="text-4xl font-bold text-green-500 mb-4">CALCULATE YOUR PROFITS</h1>
+	  <p class="text-lg mb-8">
+	    It is a tool that estimates the profits an investor can expect to receive from their initial investment, taking into account expected returns and fees. It is important to exercise caution and thoroughly research any investment opportunity before committing funds.
+	  </p>
+	  <div class="mb-6">
+	    <div class="flex items-start mb-4 left-slide">
+	      <i class="fas fa-check text-green-500 text-2xl mr-4"></i>
+	      <div>
+		 <h2 class="text-xl font-semibold">Accurately forecast your profits</h2>
+		 <p class="text-base">
+		   Predicting the financial gains a business expects to achieve over a specific period. It is a crucial aspect of financial planning and management that helps businesses make informed decisions, set realistic goals, and allocate resources effectively.
+		 </p>
+	      </div>
+	    </div>
+	    <div class="flex items-start right-slide">
+	      <i class="fas fa-check text-green-500 text-2xl mr-4"></i>
+	      <div>
+		 <h2 class="text-xl font-semibold">Promoting transparency and trust</h2>
+		 <p class="text-base">
+		   In a business or organization involves fostering an environment where information is open, honest, and readily available to stakeholders. Transparency builds trust by providing clarity, reducing uncertainty, and demonstrating integrity.
+		 </p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+     </section>
+     
+
+     <section class="bg-[#0b1120] text-white">
+	<div class="text-center py-12">
+	    <h1 class="text-4xl font-bold text-green-500">OUR INVESTMENT PROCESS</h1>
+	    <p class="mt-4 text-lg">Our investment process is designed to be simple and straightforward, ensuring that you can start investing and earning profits without any hassle.</p>
+	</div>
+	<div class="flex flex-col md:flex-row justify-center space-x-0 md:space-x-8 space-y-8 md:space-y-0 px-4">
+	    <!-- Step 1 -->
+	    <div class="bg-[#0b1120] border border-gray-700 rounded-lg p-8 text-center w-full md:w-1/3 left-slide hidden-slide">
+		 <div class="flex justify-center mb-4">
+		     <div class="bg-[#0b1120] rounded-full p-4 border-4 border-green-500">
+			  <i class="fas fa-user text-3xl text-green-500"></i>
+		     </div>
+		 </div>
+		 <h2 class="text-xl font-semibold text-green-500">Create Account</h2>
+		 <p class="mt-2">Create an account in minutes and get access to our exclusive investment opportunities.</p>
+		 <div class="mt-6">
+		     <div class="bg-[#0b1120] border border-gray-700 rounded-full w-10 h-10 flex items-center justify-center mx-auto">
+			  <span class="text-xl text-green-500">1</span>
+		     </div>
+		 </div>
+	    </div>
+   
+	    <!-- Step 2 -->
+	    <div class="bg-[#0b1120] border border-gray-700 rounded-lg p-8 text-center w-full md:w-1/3 left-slide hidden-slide">
+		 <div class="flex justify-center mb-4">
+		     <div class="bg-[#0b1120] rounded-full p-4 border-4 border-green-500">
+			  <i class="fas fa-hand-holding-usd text-3xl text-green-500"></i>
+		     </div>
+		 </div>
+		 <h2 class="text-xl font-semibold text-green-500">Invest To Plan</h2>
+		 <p class="mt-2">Secure and Flexible Investment Options: Invest in Our Range of Customized Plans to Meet Your Financial Goals.</p>
+		 <div class="mt-6">
+		     <div class="bg-[#0b1120] border border-gray-700 rounded-full w-10 h-10 flex items-center justify-center mx-auto">
+			  <span class="text-xl text-green-500">2</span>
+		     </div>
+		 </div>
+	    </div>
+   
+	    <!-- Step 3 -->
+	    <div class="bg-[#0b1120] border border-gray-700 rounded-lg p-8 text-center w-full md:w-1/3 right-slide hidden-slide">
+		 <div class="flex justify-center mb-4">
+		     <div class="bg-[#0b1120] rounded-full p-4 border-4 border-green-500">
+			  <i class="fas fa-comment-dollar text-3xl text-green-500"></i>
+		     </div>
+		 </div>
+		 <h2 class="text-xl font-semibold text-green-500">Get Profit</h2>
+		 <p class="mt-2">Get Guaranteed Returns on Your Investment, Invest in Our Expertly Crafted Plans and Start Earning Profits Now.</p>
+		 <div class="mt-6">
+		     <div class="bg-[#0b1120] border border-gray-700 rounded-full w-10 h-10 flex items-center justify-center mx-auto">
+			  <span class="text-xl text-green-500">3</span>
+		     </div>
+		 </div>
+	    </div>
+	</div>
+   </section>
+   
+   
+   <section style="background-color: #0b1e3d; font-family: Arial, sans-serif;" class="text-white">
+	<div class="container mx-auto py-12 px-4">
+	    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+		 <div class="left-slide">
+		     <h2 style="color: #4caf50;" class="text-4xl font-bold mb-4">COMMON INQUIRIES</h2>
+		     <p class="mb-8">Our dedicated support team are always here for your backup. Don't hesitate to submit any queries to us.</p>
+		     <div class="mb-6">
+			  <div class="flex items-start mb-4">
+			      <i class="fas fa-check text-xl mr-2" style="color: #4caf50;"></i>
+			      <div>
+				   <h3 class="text-xl font-semibold">We're radically transparent</h3>
+				   <p>This approach involves sharing a comprehensive and unfiltered view of internal workings, including information about strategies, finances, challenges, and successes.</p>
+			      </div>
+			  </div>
+			  <div class="flex items-start">
+			      <i class="fas fa-check text-xl mr-2" style="color: #4caf50;"></i>
+			      <div>
+				   <h3 class="text-xl font-semibold">24/7 hours support</h3>
+				   <p>Providing 24/7 Support for All Your Investment Needs.</p>
+			      </div>
+			  </div>
+		     </div>
+		 </div>
+		 <div class="right-slide">
+			<div class="accordion">
+				<div class="accordion-item">
+				    <div class="accordion-header">
+					 <span class="header-text">+ How Can I Choose a Reliable U.S Bancorp Broker?</span>
+				    </div>
+				    <div class="accordion-content">
+					 <p>Consider factors such as regulatory compliance, auto trading platforms offered, fees, customer support, and the broker's reputation. Choose a broker that aligns with your trading needs and preferences.</p>
+				    </div>
+				</div>
+				<div class="accordion-item">
+				    <div class="accordion-header">
+					 <span class="header-text">+ How Much Money Do I Need to Start U.S Bancorp Trading?</span>
+				    </div>
+				    <div class="accordion-content">
+					 <p>The amount needed to start U.S Bancorp trading can vary, but it's advisable to start with at least $100 to $500. This allows you to manage risk and take advantage of leverage.</p>
+				    </div>
+				</div>
+				<div class="accordion-item">
+				    <div class="accordion-header">
+					 <span class="header-text">+ How Can I Assess the Risk in U.S Bancorp Trading?</span>
+				    </div>
+				    <div class="accordion-content">
+					 <p>Risk in U.S Bancorp trading can be assessed using various tools like stop-loss orders, risk-reward ratios, and proper position sizing. It's essential to analyze market conditions and your trading strategy.</p>
+				    </div>
+				</div>
+				<div class="accordion-item">
+				    <div class="accordion-header">
+					 <span class="header-text">+ What does our company do?</span>
+				    </div>
+				    <div class="accordion-content">
+					 <p>Our company provides a range of U.S Bancorp trading solutions, including educational resources, market analysis, and a trading platform tailored to meet the needs of traders at all levels.</p>
+				    </div>
+				</div>
+				<div class="accordion-item">
+				    <div class="accordion-header">
+					 <span class="header-text">+ What tariff plans do we offer?</span>
+				    </div>
+				    <div class="accordion-content">
+					 <p>We offer various tariff plans tailored to different trading needs, including standard accounts, premium accounts, and special plans for high-volume traders. Contact our support for more details.</p>
+				    </div>
+				</div>
+			   </div>
+		 </div>
+	    </div>
+	</div>
+</section>
+
+<section style="background-color: #0b1e3d; color: #ffffff; font-family: 'Arial', sans-serif;" class="flex flex-col items-center justify-center min-h-screen p-4">
+	<div class="text-center mb-8">
+	    <h1 style="color: #4caf50;" class="text-4xl font-bold">OUR ACHIEVEMENTS</h1>
+	    <p class="text-lg">Hear what they have to say! 20000+ users around the world make money through investing in our platform.</p>
+	</div>
+	<div class="space-y-8 max-w-4xl w-full">
+	    <div class="achievement-item" style="background-color: #2d3748; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #4caf50;">
+		 <div class="flex items-center mb-4">
+		     <div class="flex items-center" style="color: #ffc107;">
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+		     </div>
+		 </div>
+		 <p class="mb-4">Discovering auto trading changed my financial perspective completely. With the right education and guidance from my broker, I've turned a modest investment into substantial gains. The market's dynamic nature keeps me engaged, and I'm grateful for the financial opportunities it has provided.</p>
+		 <div class="flex items-center">
+		     <img alt="Profile picture of Satyma Kumar" class="w-12 h-12 rounded-full mr-4" height="50" src="https://storage.googleapis.com/a1aa/image/3LlKhWMj6qr3H5Ev6GeFwM0He1nMBBcBeqsIfWaEfzlnhOpcC.jpg" width="50"/>
+		     <div>
+			  <p class="font-bold">Satyma Kumar</p>
+			  <p style="color: #9ca3af;" class="text-sm">Businessman</p>
+		     </div>
+		 </div>
+	    </div>
+	    <div class="achievement-item" style="background-color: #2d3748; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #4caf50;">
+		 <p class="mb-4">As a part-time investor, auto trading has been a game-changer for me. The accessibility of the market and the ability to trade 24/7 suit my schedule perfectly. With careful analysis and risk management, I've seen consistent profits that have positively impacted my overall financial picture.</p>
+		 <div class="flex items-center">
+		     <img alt="Profile picture of Aniket Kumar" class="w-12 h-12 rounded-full mr-4" height="50" src="https://storage.googleapis.com/a1aa/image/e8xXkDfCoWjFq0TaMf0EV3GlnidNb31bGvSfPsYGKAP3QnUOB.jpg" width="50"/>
+		     <div>
+			  <p class="font-bold">Aniket Kumar</p>
+			  <p style="color: #9ca3af;" class="text-sm">Artist &amp; Musician</p>
+		     </div>
+		 </div>
+	    </div>
+	    <div class="achievement-item" style="background-color: #2d3748; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #4caf50;">
+		 <div class="flex items-center mb-4">
+		     <div class="flex items-center" style="color: #ffc107;">
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+		     </div>
+		 </div>
+		 <p class="mb-4">U.S Bancorp investment has been a crucial addition to my diversified portfolio. The potential for profit and the ability to react to global economic events in real-time make it an exciting venture. My broker's insights and the use of advanced auto trading tools have been instrumental in my success.</p>
+		 <div class="flex items-center">
+		     <img alt="Profile picture of Mahima Gupta" class="w-12 h-12 rounded-full mr-4" height="50" src="https://storage.googleapis.com/a1aa/image/PTEoUejs0wWkV6OftmMzM81OyJAGWSlzSTgTi1j0XLyK0JlTA.jpg" width="50"/>
+		     <div>
+			  <p class="font-bold">Mahima Gupta</p>
+			  <p style="color: #9ca3af;" class="text-sm">Team Leader</p>
+		     </div>
+		 </div>
+	    </div>
+	    <div class="achievement-item" style="background-color: #2d3748; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #4caf50;">
+		 <div class="flex items-center mb-4">
+		     <div class="flex items-center" style="color: #ffc107;">
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+			  <i class="fas fa-star"></i>
+		     </div>
+		 </div>
+		 <p class="mb-4">Having dabbled in various investments, auto trading stood out for its potential returns and global reach. With strategic planning and the support of my broker, I've navigated the market's ups and downs successfully. U.S Bancorp has become a cornerstone of my investment strategy.</p>
+		 <div class="flex items-center">
+		     <img alt="Profile picture of Vicky Jain" class="w-12 h-12 rounded-full mr-4" height="50" src="https://storage.googleapis.com/a1aa/image/gQCveG3tpDUZd6t3UsjMKbo5Kzourz4xlE9coeDurS7O0JlTA.jpg" width="50"/>
+		     <div>
+			  <p class="font-bold">Vicky Jain</p>
+			  <p style="color: #9ca3af;" class="text-sm">Project Manager</p>
+		     </div>
+		 </div>
+	    </div>
+	</div>
+   </section>
+   
+
+  
+   <section style="background-color: #0b1e3d; font-family: 'Arial', sans-serif;" class="text-white">
+	<div style="text-align: center; padding: 3rem 0;" class="animated-content animated">
+	  <h1 style="font-size: 2.25rem; font-weight: bold; color: #68d391;">
+	    OUR TOP INVESTOR
+	  </h1>
+	  <p style="margin-top: 1rem; font-size: 1.125rem;">
+	    Insights and Lessons from the most successful investors. Our platform aims to empower and inspire individuals to invest in their financial future.
+	  </p>
+	</div>
+	<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 0 1rem;">
+	  <!-- Investor 1 -->
+	  <div style="text-align: center; margin-bottom: 15px;" class="flip-image animated">
+	    <div class="image-container">
+	      <img alt="Image of Smriti Irani" height="200" src="https://storage.googleapis.com/a1aa/image/puDh3VDDF0LpCFaD8zFIElFIsjlvzk9p1zZGWyUUuWQdekyJA.jpg" width="200" class="flip-image">
+	    </div>
+	    <h2 style="margin-top: 1rem; font-size: 1.25rem; font-weight: 600;">
+	      Smriti Irani
+	    </h2>
+	    <p style="font-size: 0.875rem;">
+	      Investment - $98000
+	    </p>
+	  </div>
+     
+	  <!-- Investor 2 -->
+	  <div style="text-align: center; margin-bottom: 15px;" class="flip-image animated">
+	    <div class="image-container">
+	      <img alt="Image of Aashish Kumar" height="200" src="https://storage.googleapis.com/a1aa/image/0ECoTVofxoUhfkHcNaHwDwiVOlblyaezI1iYzeFPlYSbnnUOB.jpg" width="200" class="flip-image">
+	    </div>
+	    <h2 style="margin-top: 1rem; font-size: 1.25rem; font-weight: 600;">
+	      Aashish Kumar
+	    </h2>
+	    <p style="font-size: 0.875rem;">
+	      Investment - $100000
+	    </p>
+	  </div>
+     
+	  <!-- Investor 3 -->
+	  <div style="text-align: center; margin-bottom: 15px;" class="flip-image animated">
+	    <div class="image-container">
+	      <img alt="Image of Suraj Kumar" height="200" src="https://storage.googleapis.com/a1aa/image/THpRC6FjYc4EPRqtBZrolzuaX0y945sHlvdYe6fdLlv85JlTA.jpg" width="200" class="flip-image">
+	    </div>
+	    <h2 style="margin-top: 1rem; font-size: 1.25rem; font-weight: 600;">
+	      Suraj Kumar
+	    </h2>
+	    <p style="font-size: 0.875rem;">
+	      Investment - $90000
+	    </p>
+	  </div>
+     
+	  <!-- Investor 4 -->
+	  <div style="text-align: center; margin-bottom: 15px;" class="flip-image animated">
+	    <div class="image-container">
+	      <img alt="Image of Vijay Prasath" height="200" src="https://storage.googleapis.com/a1aa/image/y5yS3fR6pKxWNK0VwQxkAkINSqAUpsHmssVvhdKoLmn98kyJA.jpg" width="200" class="flip-image">
+	    </div>
+	    <h2 style="margin-top: 1rem; font-size: 1.25rem; font-weight: 600;">
+	      Vijay Prasath
+	    </h2>
+	    <p style="font-size: 0.875rem;">
+	      Investment - $95000
+	    </p>
+	  </div>
+     
+	  <!-- Investor 5 -->
+	  <div style="text-align: center; margin-bottom: 15px;" class="flip-image animated">
+	    <div class="image-container">
+	      <img alt="Image of Rajveer Singh" height="200" src="https://storage.googleapis.com/a1aa/image/yk00YmABC9prAZw6rrDfswL2rxt2H3vowQFNTXmQd9B88kyJA.jpg" width="200" class="flip-image">
+	    </div>
+	    <h2 style="margin-top: 1rem; font-size: 1.25rem; font-weight: 600;">
+	      Rajveer Singh
+	    </h2>
+	    <p style="font-size: 0.875rem;">
+	      Investment - $375000
+	    </p>
+	  </div>
+     
+	  <!-- Investor 6 -->
+	  <div style="text-align: center; margin-bottom: 15px;" class="flip-image animated">
+	    <div class="image-container">
+	      <img alt="Image of Hemant" height="200" src="https://storage.googleapis.com/a1aa/image/fH72YkB2W5w8PyfyEBkqeTgIifPThFV4SnNKbzIsYRInnnUOB.jpg" width="200" class="flip-image">
+	    </div>
+	    <h2 style="margin-top: 1rem; font-size: 1.25rem; font-weight: 600;">
+	      Hemant
+	    </h2>
+	    <p style="font-size: 0.875rem;">
+	      Investment - $480000
+	    </p>
+	  </div>
+	</div>
+     </section>
+     
+
+
+     <section class="subscription-section p-4">
+	<div class="subscription-box bg-white shadow rounded p-6">
+	    <div class="subscription-text text-lg mb-4">
+		 Join our mail list to get the latest announcements
+	    </div>
+	    <div class="input-container flex items-center">
+		 <input type="email" placeholder="Email Address" class="input-email border border-gray-300 rounded p-2 flex-1 mr-2" required>
+		 <button class="subscribe-button bg-green-600 mb-4 text-white px-4 py-2 rounded" onclick="subscribe()">
+		     Join our mail list
+		 </button>
+	    </div>
+	    <div id="message-containers" class="mt-4 text-red-600 hidden"></div>
+	    <div id="message-container" class="mt-4 text-blue-600 hidden"></div>
+	</div>
+   </section>
+
+
+
+   <section style="background-color: #0a1f44; font-family: 'Arial', sans-serif;" class="text-white">
+    <div class="container mx-auto py-12">
+        <h1 class="text-center text-4xl text-green-500 mb-2">LATEST NEWS</h1>
+        <p class="text-center text-lg mb-8">Stay ahead of the curve with up-to-the-minute reports and updates</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 rounded-lg overflow-hidden news-item">
+                <img alt="Abstract image of a modern building with glass windows" class="w-full h-48 object-cover flip-image" src="https://storage.googleapis.com/a1aa/image/fLGI8fjaKorb7Ue1qLIVQPJdA6UgfMgaOEgck2kYr6EyeRpcC.jpg" />
+                <div class="p-4">
+                    <p class="text-teal-400 mb-2"><i class="far fa-calendar-alt"></i> 15 June 2024</p>
+                    <h2 class="text-lg font-bold mb-2">Adobe Q2 Revenue Up 10%</h2>
+                    <p>Adobe Inc. reported a 10% increase in revenue for its second quarter of 2024, reaching $5.31 billion, and adjusted earnings of $4.48 per share.</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg overflow-hidden news-item">
+                <img alt="Image of Bitcoin and gold bars" class="w-full h-48 object-cover flip-image" src="https://storage.googleapis.com/a1aa/image/zf7coVs4Y6zXPKJnaTIj6ljXYHWHBnSNVciLlaGkuvs3HlyJA.jpg" />
+                <div class="p-4">
+                    <p class="text-teal-400 mb-2"><i class="far fa-calendar-alt"></i> 14 June 2024</p>
+                    <h2 class="text-lg font-bold mb-2">Apple Charged for Anti-Competitive Practices</h2>
+                    <p>Apple is reportedly facing charges under the EU Digital Markets Act. The European Commission is planning to charge the tech giant for allegedly stifling competition on its mobile App Store.</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg overflow-hidden news-item">
+                <img alt="Image of a digital Bitcoin representation" class="w-full h-48 object-cover flip-image" src="https://storage.googleapis.com/a1aa/image/s9CeN9F8zH0fb0cne7Q8naNzIerDsKqYYb1MxGLWLIz3eRpcC.jpg" />
+                <div class="p-4">
+                    <p class="text-teal-400 mb-2"><i class="far fa-calendar-alt"></i> 13 June 2024</p>
+                    <h2 class="text-lg font-bold mb-2">MicroStrategy Upsizes Debt for Bitcoin, Gets 'Outperform' Rating</h2>
+                    <p>MicroStrategy Incorporated now owns approximately 214,400 bitcoins valued at around $14.4 billion. The company's strong Bitcoin buying strategy has positioned it as a leading Bitcoin company, attracting large-scale capital for an active Bitcoin acquisition strategy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+   <section class="bg-gray-900 text-white">
+	<footer class="bg-gray-800 py-10">
+	 <div class="container mx-auto px-4">
+	  <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+	   <div class="col-span-1">
+	    <img alt="Company Logo" class="mb-4" height="100" src="./img/usbnk.svg" width="100"/>
+	    <p>
+		U.S BANCORP investment platform, we offer a stable and reliable platform for users to invest in U.S Bancorp. Our investment plan offers flexibility and a high, guaranteed return.
+	    </p>
+	   </div>
+	   <div class="col-span-1">
+	    <h3 class="text-lg font-semibold mb-2">
+	     Importants Links
+	    </h3>
+	    <div class="border-b-2 border-teal-500 w-10 mb-4">
+	    </div>
+	    <ul>
+	     <li>
+	      <a class="hover:underline" href="#">
+		Privacy Policy
+	      </a>
+	     </li>
+	    </ul>
+	   </div>
+	   <div class="col-span-1">
+	    <h3 class="text-lg font-semibold mb-2">
+	     Site Links
+	    </h3>
+	    <div class="border-b-2 border-teal-500 w-10 mb-4">
+	    </div>
+	    <ul>
+	     <li>
+	      <a class="hover:underline" href="blog.html">
+		Blogs
+	      </a>
+	     </li>
+	     <li>
+	      <a class="hover:underline" href="contact.html">
+		Contact
+	      </a>
+	     </li>
+	     <li>
+	      <a class="hover:underline" href="#">
+		Home
+	      </a>
+	     </li>
+	    </ul>
+	   </div>
+	   <div class="col-span-1">
+	    <h3 class="text-lg font-semibold mb-2">
+	     Contact
+	    </h3>
+	    <div class="border-b-2 border-teal-500 w-10 mb-4">
+	    </div>
+	    <p>
+	     If you have any questions just drop us an email. We are always here for any queries.
+	    </p>
+	    <div class="flex space-x-4 mt-4">
+		<a class="bg-green-600 p-2 rounded-full" href="https://www.facebook.com/usbank/">
+		  <i class="fab fa-facebook-f"></i>
+		</a>
+		<a class="bg-green-600 p-2 rounded-full" href="https://www.youtube.com/user/USBank">
+		  <i class="fab fa-youtube"></i>
+		</a>
+		<a class="bg-green-600 p-2 rounded-full" href="https://twitter.com/usbank">
+		  <i class="fab fa-twitter"></i>
+		</a>
+		<a class="bg-green-600 p-2 rounded-full" href="https://www.instagram.com/usbank/">
+		  <i class="fab fa-instagram"></i>
+		</a>
+	     </div>
+	   </div>
+	  </div>
+	 </div>
+	</footer>
+</section>
+   
+</div>
+</div>
+</section>
+</section>
+<!-- <script src="https://code.jquery.com/ themselves> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax> -->
+
+		<script src="script.js"></script>
+ </body>
+</html>
